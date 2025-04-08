@@ -1,0 +1,53 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+
+#board, .boardInfo{
+    max-width: 500px;
+}
+
+#board{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+}
+
+.boardInfo, #start{
+    font-size: 25px;
+}
+
+#gameOver{
+    display: none;
+}
+
+.boardInfo{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#start{
+    background-color: #D91656;
+    border: none;
+    color: white;
+}
+
+#scoreBoard{
+    display: inline-flex;
+}
+
+.square{
+    aspect-ratio: 1;
+}
+
+.emptySquare{
+    background-color: #640D5F;
+}
+
+.snakeSquare{
+    background-color: #FFB200;
+}
+
+.foodSquare{
+    background-color: #00A500;
+}
