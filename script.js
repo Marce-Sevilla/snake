@@ -1,13 +1,13 @@
 // HTML Elements
 const board = document.getElementById('board');
 const scoreBoard = document.getElementById('scoreBoard');
-const start = document.getElementById('start');
-const gameOver = document.getElementById('gameOver');
+const startButton = document.getElementById('start');
+const gameOverSign = document.getElementById('gameOver');
 
 // Game Settings
-const boarSize = 10;
+const boardSize = 10;
 const gmaeSpeed = 100;
-const squareTime = {
+const squareType = {
     emptySquare: 0,
     snakeSquare: 1,
     foodSquare: 2,
@@ -26,3 +26,17 @@ let direction;
 let boardSquares;
 let emptySquares;
 let moveInterval;
+
+const setGame = () => {
+    snake = ['00','01','02','03'];
+    score = snake.length;
+    direction = 'ArrowRigth';
+    boardSquares = Array.from(Array(boardSize), () => new Array(boardSize).fill(squareType.emptySquare));
+    console.log(boardSquares);
+};
+
+const startGame = () => {
+    setGame();
+};
+
+startButton.addEventListener('click', startGame);
