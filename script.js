@@ -27,6 +27,36 @@ let boardSquares;
 let emptySquares;
 let moveInterval;
 
+const setDirection = (newDarection) => {
+    direction = newDarection;
+};
+
+const directionEvent = key => {
+    switch (key.code) {
+        case 'ArrowUP':
+            direction != 'ArrowDown' && setDirection(key.code);
+            break
+        case 'ArrowDown':
+            direction != 'ArrowUP' && setDirection(key.code);
+            break
+        case 'ArrowRight':
+            direction != 'ArrowLeft' && setDirection(key.code);
+            break
+        case 'ArrowLeft':
+            direction != 'ArrowRight' && setDirection(key.code);
+            break
+    };
+};
+
+const createRandomFood = () =>{
+    const randomEmptySquare = emptySquares[Math.floor(Math.random() * emptySquares.length)];
+    drawSquare(randomEmptySquare, 'foodSquare');
+};
+
+const updateScore = () =>{
+    scoreBoard.innerText = score;
+};
+
 const drawSnake = () => {
     snake.forEach(square => drawSquare(square, 'snakeSquare'));
 };
@@ -74,6 +104,10 @@ const startGame = () => {
     gameOverSign.style.display = 'none';
     startButton.disabled = true;
     drawSnake();
+    updateScore();
+    createRandomFood();
+    document.addEventListener('keydown', directionEvent);
+    moveInterval = setInterval(() => moveSnake(), gmaeSpeed);
 };
 
 startButton.addEventListener('click', startGame);
