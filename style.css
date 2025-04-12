@@ -18,6 +18,9 @@
 
 #gameOver{
     display: none;
+    color: rgba(255, 0, 0, 0.76);
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .boardInfo{
